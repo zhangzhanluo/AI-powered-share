@@ -1,0 +1,3 @@
+pre-engineering: https://github.com/zhangzhanluo/pre-engineering
+Claude-Code-Agent-Monitor: https://github.com/hoangsonww/Claude-Code-Agent-Monitor
+tech-report-template: https://gitcode.com/zlzhang/tech-report-template
