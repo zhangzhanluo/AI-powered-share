@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI 助力工作：工具与方法分享</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Noto+Sans+SC:wght@200;300;400;500;700;900&display=swap" rel="stylesheet">
+<!-- 字体改用系统兜底:原 Google Fonts 外链在国内网络下挂起会阻塞渲染致白屏,已移除(Inter→Helvetica Neue、中文→苹方/微软雅黑、等宽→SF Mono/Consolas) -->
 <style>
   :root{
     /* ============ 主题色(默认: 🔵 克莱因蓝 IKB) ============
@@ -1240,347 +1238,161 @@
      - canvas-card 内首位插入 <canvas class="ascii-bg" aria-hidden="true">,本文件底部 IIFE 自动启动
      - 主标题反白 weight 200,强调字用斜体而非 var(--accent)(底已是蓝,蓝压蓝看不见)
      - 不要再放编号大字"01"——chrome-min 已经标 01/NN -->
-<!-- ============ 01 · Cover · IKB 满屏 + ASCII 呼吸场 ============ -->
+<!-- ============ 01 · Cover · 多任务并行 ============ -->
 <section class="slide accent" data-layout="SWISS-COVER-ASCII" data-animate="hero">
   <div class="canvas-card">
     <canvas class="ascii-bg" aria-hidden="true"></canvas>
     <div class="chrome-min">
       <div class="l">AI-POWERED WORK · INTERNAL SHARE</div>
-      <div class="r">SS · 26.06.21 · 01 / 31</div>
+      <div class="r">SS · 26.07.15 · 01 / 28</div>
     </div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:1fr auto;gap:2.6vh">
-      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(7vw,12vh);line-height:1.02;letter-spacing:-.025em;color:#fff">AI 助力工作<br/>工具与<span style="font-style:italic;font-weight:300">方法</span>分享</h1>
+      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(6vw,10.6vh);line-height:1.04;letter-spacing:-.025em;color:#fff">YES工程师<br/>的<span style="font-style:italic;font-weight:300">自我修养</span></h1>
       <div data-anim="bottom" style="display:grid;grid-template-rows:auto auto;gap:1.6vh;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh">
-        <div data-anim="lead" class="lead" style="max-width:52ch;color:rgba(255,255,255,.86)">把 AI 嵌入日常工作流程的具体实践：技术文档、多智能体协作框架与会话过程可视化。</div>
-        <div class="t-meta" style="color:rgba(255,255,255,.6)">张战罗 · 2026.06.21</div>
+        <div data-anim="lead" class="lead" style="max-width:56ch;color:rgba(255,255,255,.86)">如何优雅地yes！</div>
+        <div class="t-meta" style="color:rgba(255,255,255,.6)">AI 助力工作 · 工具与方法分享 · 张战罗 · 2026.07.15</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 03 · Overview · 四部分路线 ============ -->
+<!-- ============ 02 · 杰文斯悖论 · 引子 ============ -->
+<section class="slide split" data-layout="S03" data-animate="split-statement">
+  <div class="canvas-card">
+    <div class="split-half">
+      <div class="half b-ink" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">PROLOGUE · JEVONS</div><div class="r">02 / 28</div></div>
+        <div data-anim="head" style="display:flex;flex-direction:column;gap:1.6vh">
+          <div class="t-meta" style="color:rgba(255,255,255,.7);letter-spacing:.22em">JEVONS PARADOX</div>
+          <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(6.4vw,11vh);line-height:1.02;letter-spacing:-.025em;color:var(--paper)">杰文斯悖论</h2>
+        </div>
+        <div class="t-meta" style="color:rgba(255,255,255,.5)">19 世纪 · 经济学家杰文斯</div>
+      </div>
+      <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">HOOK · WHY NOW</div><div class="r"></div></div>
+        <div data-anim="body" style="display:flex;flex-direction:column;gap:1.8vh">
+          <p class="body" style="max-width:38ch;line-height:1.62">瓦特改良蒸汽机后，煤炭燃烧效率大幅提升。人们本以为英国煤炭消耗量会因此下降，但事实恰恰相反——蒸汽机效率提高意味着获得同等动力的成本大幅降低，于是纺织厂、轮船、火车等千行百业纷纷采用蒸汽机，最终英国煤炭总消耗量迎来了爆发式增长。</p>
+          <p class="body" style="opacity:.82;max-width:38ch">编程同理：AI 让写代码的成本骤降，以前因成本太高而不做的事，现在都会涌现出来。</p>
+        </div>
+        <div class="t-meta" style="color:var(--accent);opacity:.9">效率降低成本，成本降低释放被压抑的需求。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · 定调 · 多任务并行是核心 ============ -->
 <section class="slide light" data-layout="S19" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CONTENTS</div><div class="r">02 / 31</div></div>
+    <div class="chrome-min"><div class="l">PROLOGUE · CORE</div><div class="r">03 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">分享路线</h2>
+        <h2 class="h-xl-zh">机遇<span style="color:var(--accent)">还是</span>挑战？</h2>
       </div>
-      <div data-anim="body" class="grid-12" style="align-content:center;gap:3vh 1.2vw">
-        <div class="span-3" style="border-top:2px solid var(--accent);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+      <div data-anim="body" class="grid-12" style="align-items:center;gap:0;margin-top:1vh">
+        <div class="span-2" style="display:flex;flex-direction:column;gap:1vh;justify-content:center;padding:0 .8vw 0 0">
           <div class="t-meta" style="color:var(--accent)">01</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">LaTeX 写文档</div>
-          <p class="body-sm" style="opacity:.7">自制技术文档模板，样式与内容分离。</p>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">成本骤降</div>
+          <p class="body-sm" style="opacity:.7">AI 让编程成本大幅下降。</p>
         </div>
-        <div class="span-3" style="border-top:2px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+        <div class="span-1" style="display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:var(--sans);font-weight:200;font-size:min(4vw,6vh);line-height:1">→</div>
+        <div class="span-2" style="display:flex;flex-direction:column;gap:1vh;justify-content:center;padding:0 .8vw">
           <div class="t-meta">02</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">PRE 工程</div>
-          <p class="body-sm" style="opacity:.7">多智能体协作框架，状态机驱动。</p>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">需求涌现</div>
+          <p class="body-sm" style="opacity:.7">以前因成本不做的事都会冒出来。</p>
         </div>
-        <div class="span-3" style="border-top:2px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+        <div class="span-1" style="display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:var(--sans);font-weight:200;font-size:min(4vw,6vh);line-height:1">→</div>
+        <div class="span-2" style="display:flex;flex-direction:column;gap:1vh;justify-content:center;padding:0 .8vw">
           <div class="t-meta">03</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">监控看板</div>
-          <p class="body-sm" style="opacity:.7">Claude Code 会话实时可视化。</p>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">效率挑战</div>
+          <p class="body-sm" style="opacity:.7">需求变大，挑战落在效率提升。</p>
         </div>
-        <div class="span-3" style="border-top:2px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta">04</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">一些思考</div>
-          <p class="body-sm" style="opacity:.7">实践过程中的开放问题。</p>
+        <div class="span-1" style="display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:var(--sans);font-weight:200;font-size:min(4vw,6vh);line-height:1">→</div>
+        <div class="span-3" style="display:flex;flex-direction:column;gap:1vh;justify-content:center;padding:0 0 0 .8vw">
+          <div class="t-meta" style="color:var(--accent)">04</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em;color:var(--accent)">多任务并行</div>
+          <p class="body-sm" style="opacity:.78">效率提升有赖于并行——今天分享的核心。</p>
         </div>
       </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">张战罗 · 组内分享 · 2026.06.21</div>
+      <div data-anim="foot" class="t-meta" style="opacity:.5">—— 那么，具体要解决哪些问题？</div>
     </div>
   </div>
 </section>
 
-<!-- ============ 04 · Chapter 01 · 用 LaTeX 写文档 ============ -->
-<section class="slide accent" data-layout="SWISS-COVER-ASCII" data-animate="hero">
-  <div class="canvas-card">
-    <canvas class="ascii-bg" aria-hidden="true"></canvas>
-    <div class="chrome-min">
-      <div class="l">CHAPTER 01 · LATEX · DOCS</div>
-      <div class="r">03 / 31</div>
-    </div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:1fr auto;gap:2.6vh">
-      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(7vw,12vh);line-height:1.02;letter-spacing:-.025em;color:#fff">用 <span style="font-style:italic;font-weight:300">LaTeX</span><br/>写文档</h1>
-      <div data-anim="bottom" style="display:grid;grid-template-rows:auto auto;gap:1.6vh;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh">
-        <div data-anim="lead" class="lead" style="max-width:54ch;color:rgba(255,255,255,.86)">自制技术文档模板：样式与内容分离，对 AI 协作友好，纯文本源码可纳入 git 版本管理。</div>
-        <div style="display:flex;justify-content:space-between;align-items:end">
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">对比 · 优劣 · 环境 · 模板 · 画图</div>
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ 04 / 31</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 06 · LaTeX / Word / Markdown 对比 ============ -->
+<!-- ============ 04 · 多任务并行的三个问题 ============ -->
 <section class="slide dark" data-layout="S13" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 01 · LATEX</div><div class="r">04 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:2.6vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.4vw,8vh);line-height:1;letter-spacing:-.025em">LaTeX · Word · Markdown</h2>
-      </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:0;align-content:center;font-feature-settings:'tnum'">
-        <div class="t-meta" style="color:rgba(250,250,248,.45);padding:1.3vh 0;border-bottom:1px solid rgba(250,250,248,.25)">维度</div>
-        <div class="t-meta" style="color:var(--accent);padding:1.3vh 0 1.3vh 1.4vw;border-bottom:2px solid var(--accent)">LaTeX</div>
-        <div class="t-meta" style="color:rgba(250,250,248,.6);padding:1.3vh 0 1.3vh 1.4vw;border-bottom:1px solid rgba(250,250,248,.25)">Word</div>
-        <div class="t-meta" style="color:rgba(250,250,248,.6);padding:1.3vh 0 1.3vh 1.4vw;border-bottom:1px solid rgba(250,250,248,.25)">Markdown</div>
-
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0">排版质量</div>
-        <div class="body-sm" style="color:var(--paper);padding:1.3vh 0 1.3vh 1.4vw">高</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">中</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">低（依赖渲染器）</div>
-
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0">源码形态</div>
-        <div class="body-sm" style="color:var(--paper);padding:1.3vh 0 1.3vh 1.4vw">纯文本</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">二进制 .docx</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">纯文本</div>
-
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0">版本管理</div>
-        <div class="body-sm" style="color:var(--paper);padding:1.3vh 0 1.3vh 1.4vw">优秀·diff 清晰</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">困难</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">优秀</div>
-
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0">AI 协作</div>
-        <div class="body-sm" style="color:var(--paper);padding:1.3vh 0 1.3vh 1.4vw">高·结构化可控</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">低·操作复杂</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">高</div>
-
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0">学习成本</div>
-        <div class="body-sm" style="color:var(--paper);padding:1.3vh 0 1.3vh 1.4vw">高</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">低</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw">低</div>
-
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0;border-top:1px solid rgba(250,250,248,.15)">适用场景</div>
-        <div class="body-sm" style="color:var(--paper);padding:1.3vh 0 1.3vh 1.4vw;border-top:1px solid var(--accent)">正式报告·公式·归档</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw;border-top:1px solid rgba(250,250,248,.15)">评审·非技术参与</div>
-        <div class="body-sm" style="color:rgba(250,250,248,.7);padding:1.3vh 0 1.3vh 1.4vw;border-top:1px solid rgba(250,250,248,.15)">内部文档·Wiki</div>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">选型取决于评审方式与归档需求；评审者只读 PDF 时，源码评审困难不构成障碍。</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============ 07 · 编译环境 · 发行版安装 ============ -->
-<section class="slide light" data-layout="S20" data-animate="grid-reveal">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 01 · LATEX</div><div class="r">05 / 31</div></div>
+    <div class="chrome-min"><div class="l">PROLOGUE · THREE PROBLEMS</div><div class="r">04 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">编译环境</h2>
+        <h2 class="h-xl-zh" style="color:var(--paper)">多任务并行的三个问题</h2>
       </div>
-      <div data-anim="body" style="display:flex;flex-direction:column;gap:0">
-        <div style="display:grid;grid-template-columns:auto 1fr auto;gap:1.6vw;align-items:baseline;padding:1.9vh 0;border-top:1px solid var(--grey-2)">
-          <span class="num" style="font-family:var(--sans);font-weight:200;font-size:min(3vw,5vh);letter-spacing:-.02em">01</span>
-          <span class="body" style="font-weight:500">macOS</span>
-          <span class="t-meta" style="opacity:.6">MacTeX（完整）或 BasicTeX + tlmgr 补包</span>
+      <div data-anim="body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;align-content:center">
+        <div style="background:rgba(255,255,255,.06);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
+          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--accent)">01</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em;color:var(--paper)">复杂任务仍然离不开人</div>
+          <p class="body-sm" style="color:rgba(250,250,248,.62);margin-top:auto;line-height:1.5">拆解难 · brainstorm-spec-plan 每环节都要把关<br/>干预难 · 中间出错，调整要全部停下<br/>检查难 · 中间出错没能及时发现，问题积累</p>
         </div>
-        <div style="display:grid;grid-template-columns:auto 1fr auto;gap:1.6vw;align-items:baseline;padding:1.9vh 0;border-top:1px solid var(--grey-2)">
-          <span class="num" style="font-family:var(--sans);font-weight:200;font-size:min(3vw,5vh);letter-spacing:-.02em">02</span>
-          <span class="body" style="font-weight:500">Linux</span>
-          <span class="t-meta" style="opacity:.6">TeX Live（apt 或 install-tl 脚本）</span>
+        <div style="background:rgba(255,255,255,.06);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
+          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--paper)">02</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em;color:var(--paper)">人的及时确认成为了效率瓶颈</div>
+          <p class="body-sm" style="color:rgba(250,250,248,.62);margin-top:auto">需要人拍板的地方，模型干等或自行其是，等确认就成了瓶颈。</p>
         </div>
-        <div style="display:grid;grid-template-columns:auto 1fr auto;gap:1.6vw;align-items:baseline;padding:1.9vh 0;border-top:1px solid var(--grey-2)">
-          <span class="num" style="font-family:var(--sans);font-weight:200;font-size:min(3vw,5vh);letter-spacing:-.02em">03</span>
-          <span class="body" style="font-weight:500">Windows</span>
-          <span class="t-meta" style="opacity:.6">TeX Live 或 MiKTeX</span>
-        </div>
-        <div style="display:grid;grid-template-columns:auto 1fr auto;gap:1.6vw;align-items:baseline;padding:1.9vh 0;border-top:1px solid var(--grey-2);border-bottom:1px solid var(--grey-2)">
-          <span class="num" style="font-family:var(--sans);font-weight:200;font-size:min(3vw,5vh);letter-spacing:-.02em;color:var(--accent)">04</span>
-          <span class="body" style="font-weight:500;color:var(--accent)">VS Code</span>
-          <span class="t-meta" style="color:var(--accent);opacity:.8">LaTeX Workshop 插件</span>
+        <div style="background:rgba(255,255,255,.06);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
+          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--paper)">03</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em;color:var(--paper)">多任务切来切去烦</div>
+          <p class="body-sm" style="color:rgba(250,250,248,.62);margin-top:auto">几个任务同时跑，来回切换，每个走到哪、卡在哪都记不清。</p>
         </div>
       </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">必须用 xelatex（中文支持），不支持 pdflatex。</div>
     </div>
   </div>
 </section>
 
-<!-- ============ 08 · 编译 recipe 设定 ============ -->
+<!-- ============ 05 · Yes 工程师 · 引出 PRE ============ -->
 <section class="slide split" data-layout="S03" data-animate="split-statement">
   <div class="canvas-card">
     <div class="split-half">
-      <div class="half b-ink" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">CHAPTER 01 · LATEX</div><div class="r">06 / 31</div></div>
-        <div data-anim="head" style="display:flex;flex-direction:column;gap:1.6vh">
-          <div class="t-meta" style="color:rgba(255,255,255,.7);letter-spacing:.22em">BUILD · RECIPE</div>
-          <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.6vw,10vh);line-height:1.02;letter-spacing:-.025em;color:var(--paper)">编译 <span style="font-style:italic;font-weight:300">recipe</span></h2>
-          <p class="lead" style="color:rgba(250,250,248,.78);max-width:34ch">LaTeX Workshop 以「工具(tool) + 配方(recipe)」组合定义编译链；模板自带 .vscode/settings.json 与 .latexmkrc。</p>
+      <div class="half b-accent" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden">
+        <canvas class="ascii-bg" aria-hidden="true"></canvas>
+        <div class="chrome-min" style="margin-bottom:0;position:relative;z-index:1"><div class="l">PROLOGUE · THREE NEEDS</div><div class="r">05 / 28</div></div>
+        <div data-anim="head" style="display:flex;flex-direction:column;gap:1.6vh;position:relative;z-index:1">
+          <div class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em">FROM PROBLEMS TO NEEDS · 从问题到需求</div>
+          <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.8vw,10.4vh);line-height:1.02;letter-spacing:-.025em;color:#fff">三个<br/><span style="font-style:italic;font-weight:300">需求</span>。</h2>
         </div>
-        <div class="t-meta" style="color:rgba(255,255,255,.5)">保存即编译 · 正反向同步（SyncTeX）</div>
+        <div class="t-meta" style="color:rgba(255,255,255,.6);position:relative;z-index:1">三个问题，往下看一层，就是三个绕不开的需求。</div>
       </div>
       <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">CONFIG · TEMPLATE</div><div class="r"></div></div>
-        <pre data-anim="code" style="font-family:var(--mono);font-size:max(13px,.8vw);line-height:1.55;background:var(--grey-1);padding:2.2vh 1.4vw;overflow:auto;white-space:pre;color:var(--ink);margin:0"><span style="color:var(--accent)">// .vscode/settings.json</span>
-"latex-workshop.latex.tools": [{
-  "name": "xelatex",
-  "command": "xelatex",
-  "args": ["-synctex=1",
-           "-interaction=nonstopmode",
-           "-file-line-error", "%DOCFILE%"]
-}]
-"latex-workshop.latex.recipes": [{
-  "name": "xelatex",
-  "tools": ["xelatex"]
-}]
-
-<span style="color:var(--accent)"># .latexmkrc（一键编译）</span>
-$pdf_mode = 1;            # xelatex → pdf
-$pdflatex = 'xelatex -synctex=1 ...';</pre>
-        <div class="t-meta" style="opacity:.55">无参考文献 xelatex ×2；含参考文献四步（含 bibtex）。</div>
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">NEEDS · LEAD-IN</div><div class="r"></div></div>
+        <div data-anim="body" style="display:flex;flex-direction:column;gap:2.2vh">
+          <div style="display:flex;flex-direction:column;gap:.5vh">
+            <div class="t-meta" style="color:var(--accent)">01 需求</div>
+            <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">提升复杂任务处理能力</div>
+            <p class="body-sm" style="opacity:.78;max-width:34ch">拆解、干预、检查都难，需要更强的处理能力把人从全程把关里解放出来。</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5vh">
+            <div class="t-meta" style="color:var(--accent)">02 需求</div>
+            <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">第一时间触达</div>
+            <p class="body-sm" style="opacity:.78;max-width:34ch">需要人决策时，第一时间通知到我，而不是干等或瞎猜。</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:.5vh">
+            <div class="t-meta" style="color:var(--accent)">03 需求</div>
+            <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">实时监控</div>
+            <p class="body-sm" style="opacity:.78;max-width:34ch">多个任务同时在跑，每一步、每次调用都看得见。</p>
+          </div>
+        </div>
+        <div class="t-meta" style="opacity:.55">→ 接下来三章，分别展开三个需求。</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 07 · Hello World · 分屏 + 代码 ============ -->
-<section class="slide split" data-layout="S03" data-animate="split-statement">
-  <div class="canvas-card">
-    <div class="split-half">
-      <div class="half b-ink" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">CHAPTER 01 · LATEX</div><div class="r">07 / 31</div></div>
-        <div data-anim="head" style="display:flex;flex-direction:column;gap:1.6vh">
-          <div class="t-meta" style="color:rgba(255,255,255,.7);letter-spacing:.22em">HELLO WORLD · MINIMAL</div>
-          <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(7vw,12vh);line-height:.96;letter-spacing:-.025em;color:var(--paper)">Hello<br/><span style="font-style:italic;font-weight:300">World</span>.</h2>
-          <p class="lead" style="color:rgba(250,250,248,.78);max-width:34ch">不依赖任何模板的最小可编译示例，使用 ctexart 文档类。</p>
-        </div>
-        <div class="t-meta" style="color:rgba(255,255,255,.5)">编译两次以生成目录与交叉引用。</div>
-      </div>
-      <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">CODE · ctexart</div><div class="r"></div></div>
-        <pre data-anim="code" style="font-family:var(--mono);font-size:max(14px,.86vw);line-height:1.55;background:var(--grey-1);padding:2.4vh 1.6vw;overflow:auto;white-space:pre;color:var(--ink);margin:0"><span style="color:var(--accent)">\documentclass</span>{ctexart}
 
-<span style="color:var(--accent)">\title</span>{文档标题}
-<span style="color:var(--accent)">\author</span>{作者}
-<span style="color:var(--accent)">\date</span>{<span style="color:var(--accent)">\today</span>}
-
-<span style="color:var(--accent)">\begin</span>{document}
-<span style="color:var(--accent)">\maketitle</span>
-<span style="color:var(--accent)">\tableofcontents</span>
-
-<span style="color:var(--accent)">\section</span>{概述}
-这是一份最小可编译的 LaTeX 文档。
-
-<span style="color:var(--accent)">\subsection</span>{公式示例}
-行内公式 $E = mc^2$，独立公式：
-<span style="color:var(--accent)">\begin</span>{equation}
-    \int_a^b f(x)\,dx = F(b) - F(a)
-<span style="color:var(--accent)">\end</span>{equation}
-<span style="color:var(--accent)">\end</span>{document}</pre>
-        <div class="t-meta" style="opacity:.55">xelatex demo.tex  ×2</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 08 · tech-report-template 能力矩阵 ============ -->
-<section class="slide dark" data-layout="S15" data-animate="matrix-fill">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 01 · TEMPLATE</div><div class="r">08 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:2.4vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh" style="color:var(--paper)">tech-report-template</h2>
-      </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.2vh 1.2vw;align-content:center">
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">01</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">封面键值参数</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">02</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">双页码系统</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">03</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">4 级标题</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">04</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">评审表 / 修改记录</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">05</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">图录 / 表录</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">06</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">tabularx 表格</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">07</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">长表格跨页</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">08</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">数学公式</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">09</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">代码块高亮</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">10</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">TikZ 流程图</div></div>
-        <div style="background:var(--accent);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(255,255,255,.7)">11</span><div class="body-sm" style="color:var(--accent-on);margin-top:.6vh;font-weight:500">gbt7714 参考文献</div></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.4vh 1vw"><span class="t-meta" style="color:rgba(250,250,248,.55)">12</span><div class="body-sm" style="color:var(--paper);margin-top:.6vh">伪代码</div></div>
-      </div>
-      <div data-anim="foot" style="display:flex;justify-content:space-between;align-items:end;border-top:1px solid rgba(250,250,248,.2);padding-top:1.6vh">
-        <div class="lead" style="color:rgba(250,250,248,.82)">样式在 <span style="font-family:var(--mono)">.cls</span>，内容在 <span style="font-family:var(--mono)">.tex</span>；封面 status（draft / formal / revising）自动勾选，设计目标为样式内容分离、对 AI 协作友好。</div>
-        <div class="num-mega" style="font-size:min(7vw,12vh);color:var(--accent)">1<span class="t-meta" style="color:rgba(250,250,248,.5);font-size:max(14px,.9vw);letter-spacing:.16em;margin-left:.6em">CLS</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 09 · 设计原则 · 四卡 ============ -->
-<section class="slide light" data-layout="S19" data-animate="grid-reveal">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 01 · TEMPLATE</div><div class="r">09 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">设计原则</h2>
-      </div>
-      <div data-anim="body" class="grid-12" style="align-content:center;gap:3vh 1.2vw">
-        <div class="span-3" style="border-top:2px solid var(--accent);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta" style="color:var(--accent)">— 01</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(17px,1.6vw);letter-spacing:-.015em">样式简单</div>
-          <p class="body-sm" style="opacity:.7">利于 PDF 转 Word 后保持可读。</p>
-        </div>
-        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta">— 02</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(17px,1.6vw);letter-spacing:-.015em">标准机制</div>
-          <p class="body-sm" style="opacity:.7">优先 table / figure / caption。</p>
-        </div>
-        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta">— 03</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(17px,1.6vw);letter-spacing:-.015em">引用关联</div>
-          <p class="body-sm" style="opacity:.7">见表 \ref，不依赖"如下"。</p>
-        </div>
-        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta">— 04</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(17px,1.6vw);letter-spacing:-.015em">样式内容分离</div>
-          <p class="body-sm" style="opacity:.7">团队统一风格零成本。</p>
-        </div>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">来自模板工程文档，实践验证后的结论。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 10 · 用 AI 画图 · 双轨 ============ -->
-<section class="slide light" data-layout="S08" data-animate="duo-mirror">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 01 · LATEX</div><div class="r">10 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">用 AI 画图</h2>
-      </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:1fr 1fr;gap:0;align-content:center">
-        <div style="padding-right:2.4vw;background:var(--accent);color:var(--accent-on);padding:2.4vh 2vw;margin-right:1.2vw">
-          <div class="t-meta" style="color:rgba(255,255,255,.78);margin-bottom:1.6vh">推荐 · 生成"图的代码"</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em;margin-bottom:1.4vh">Mermaid · PlantUML · TikZ · matplotlib</div>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.8vh">
-            <li class="body-sm" style="color:rgba(255,255,255,.9)">流程图 / 架构图 / 数据图</li>
-            <li class="body-sm" style="color:rgba(255,255,255,.9)">可编辑、可版本管理、矢量化</li>
-            <li class="body-sm" style="color:rgba(255,255,255,.9)">文字不易出错</li>
-          </ul>
-        </div>
-        <div style="padding-left:2.4vw">
-          <div class="t-meta" style="color:var(--accent);margin-bottom:1.6vh">推荐 · 直接生成图片</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em;margin-bottom:1.4vh">ChatGPT 等对话式 AI</div>
-          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.8vh">
-            <li class="body" style="opacity:.82">配图 / 示意图 / 非结构化插画</li>
-            <li class="body" style="opacity:.82">快速、直观，适合无法用代码描述的视觉</li>
-            <li class="body" style="opacity:.82">修改可在对话中迭代</li>
-          </ul>
-        </div>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">结构化图优先用代码生成；配图与示意图可直接让 AI 出图，推荐 ChatGPT。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 13 · Chapter 02 · PRE 工程 ============ -->
+<!-- ============ 06 · Q1 · PRE 工程封章 ============ -->
 <section class="slide accent" data-layout="SWISS-COVER-ASCII" data-animate="hero">
   <div class="canvas-card">
     <canvas class="ascii-bg" aria-hidden="true"></canvas>
     <div class="chrome-min">
-      <div class="l">CHAPTER 02 · PRE · MULTI-AGENT</div>
-      <div class="r">11 / 31</div>
+      <div class="l">QUESTION 01 · AUTONOMY · PRE</div>
+      <div class="r">06 / 28</div>
     </div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:1fr auto;gap:2.6vh">
       <div data-anim="title" style="align-self:center;display:flex;flex-direction:column;gap:1.4vh">
@@ -1588,23 +1400,23 @@ $pdflatex = 'xelatex -synctex=1 ...';</pre>
         <div style="font-family:var(--sans);font-weight:300;font-size:min(2.6vw,4.6vh);letter-spacing:-.01em;color:rgba(255,255,255,.62)">PRE Engineering</div>
       </div>
       <div data-anim="bottom" style="display:grid;grid-template-rows:auto auto;gap:1.6vh;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh">
-        <div data-anim="lead" class="lead" style="max-width:56ch;color:rgba(255,255,255,.86)">多智能体协作框架：Plan / Review / Execute 三角色分工，协作日志通信，状态机驱动。</div>
+        <div data-anim="lead" class="lead" style="max-width:58ch;color:rgba(255,255,255,.86)">如何提升复杂任务处理能力？——多角色分工与协调与监督。</div>
         <div style="display:flex;justify-content:space-between;align-items:end">
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">初衷 · 角色 · 日志 · 状态机 · 实践</div>
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ 12 / 31</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">初衷 · 角色 · 文档 · 状态机 · 监督者 · 案例</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ 07 / 28</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 11 · PRE 初衷 · 分屏陈述 ============ -->
+<!-- ============ 07 · PRE 初衷 · 分屏陈述 ============ -->
 <section class="slide split" data-layout="S03" data-animate="split-statement">
   <div class="canvas-card">
     <div class="split-half">
       <div class="half b-accent" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden">
         <canvas class="ascii-bg" aria-hidden="true"></canvas>
-        <div class="chrome-min" style="margin-bottom:0;position:relative;z-index:1"><div class="l">CHAPTER 02 · PRE</div><div class="r">12 / 31</div></div>
+        <div class="chrome-min" style="margin-bottom:0;position:relative;z-index:1"><div class="l">QUESTION 01 · PRE</div><div class="r">07 / 28</div></div>
         <div data-anim="head" style="display:flex;flex-direction:column;gap:1.6vh;position:relative;z-index:1">
           <div class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em">PROVERB · ORIGIN</div>
           <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.6vw,10vh);line-height:1.02;letter-spacing:-.025em;color:#fff">三个臭皮匠，<br/>顶个<span style="font-style:italic;font-weight:300">诸葛亮</span>。</h2>
@@ -1614,7 +1426,7 @@ $pdflatex = 'xelatex -synctex=1 ...';</pre>
       <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
         <div class="chrome-min" style="margin-bottom:0"><div class="l">PRE · DUAL MEANING</div><div class="r"></div></div>
         <div data-anim="body" style="display:flex;flex-direction:column;gap:2vh">
-          <p class="lead" style="max-width:34ch">PRE = <strong style="font-weight:500">P</strong>lan / <strong style="font-weight:500">R</strong>eview / <strong style="font-weight:500">E</strong>xecute，三角色分工。</p>
+          <p class="lead" style="max-width:34ch">PRE = <strong style="font-weight:500">P</strong>lan / <strong style="font-weight:500">R</strong>eview / <strong style="font-weight:500">E</strong>xecute，多角色分工。</p>
           <p class="lead" style="max-width:34ch">也是 <strong style="font-weight:500">preparation</strong>（准备）——为项目起飞提供必要材料。</p>
           <p class="body-sm" style="opacity:.7;max-width:34ch">为现有项目叠加的协作框架：一支分工明确、具备沟通渠道的智能体团队。</p>
         </div>
@@ -1624,345 +1436,294 @@ $pdflatex = 'xelatex -synctex=1 ...';</pre>
   </div>
 </section>
 
-<!-- ============ 12 · 三角色分工 ============ -->
-<section class="slide light" data-layout="S13" data-animate="grid-reveal">
+<!-- ============ 08 · 四角色分工 ============ -->
+<section class="slide light" data-layout="S19" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 02 · PRE</div><div class="r">13 / 31</div></div>
+    <div class="chrome-min"><div class="l">QUESTION 01 · PRE</div><div class="r">08 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">三角色分工</h2>
+        <h2 class="h-xl-zh">三角色<span style="color:var(--accent)">分工</span></h2>
       </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;align-content:center">
-        <div style="background:var(--grey-1);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
-          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--ink)">01</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">规划者 Planner</div>
-          <p class="body-sm" style="opacity:.72;margin-top:auto">强推理模型。读目标与代码，拆解需求、制定方案。</p>
-          <div class="t-meta" style="opacity:.5">PLAN</div>
+      <div data-anim="body" class="grid-12" style="align-content:center;gap:3vh 1.2vw">
+        <div class="span-4" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">01</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">规划者 Planner</div>
+          <p class="body-sm" style="opacity:.72">强推理模型。读目标与代码，拆解需求、制定方案。</p>
+          <div class="t-meta" style="opacity:.5;margin-top:auto">PLAN</div>
         </div>
-        <div style="background:var(--grey-1);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
-          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--ink)">02</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">执行者 Executor</div>
-          <p class="body-sm" style="opacity:.72;margin-top:auto">快速编码模型。按方案编码实现。</p>
-          <div class="t-meta" style="opacity:.5">EXECUTE</div>
+        <div class="span-4" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">02</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">执行者 Executor</div>
+          <p class="body-sm" style="opacity:.72">快速编码模型。按方案编码实现。</p>
+          <div class="t-meta" style="opacity:.5;margin-top:auto">EXECUTE</div>
         </div>
-        <div style="background:var(--accent);color:var(--accent-on);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
-          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--accent-on)">03</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">审核者 Reviewer</div>
-          <p class="body-sm" style="color:rgba(255,255,255,.88);margin-top:auto">细致审核模型。审需求与产出，驳回冗余。</p>
-          <div class="t-meta" style="color:rgba(255,255,255,.7)">REVIEW</div>
+        <div class="span-4" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">03</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">审核者 Reviewer</div>
+          <p class="body-sm" style="opacity:.72">细致审核模型。审需求与产出，驳回虚报。</p>
+          <div class="t-meta" style="opacity:.5;margin-top:auto">REVIEW</div>
         </div>
       </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">规划者不写码，执行者不规划，审核者不实现。</div>
+      <div data-anim="foot" class="t-meta" style="opacity:.5">规划者不写码，执行者不规划，审核者不实现——各司其职，互不越界。</div>
     </div>
   </div>
 </section>
 
-<!-- ============ 13 · 协作日志 · 5 核心文档 ============ -->
+<!-- ============ 09 · 协作文档 · 6 份核心 ============ -->
 <section class="slide dark" data-layout="S20" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 02 · PRE</div><div class="r">14 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr;gap:2.4vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:.8vh">
+    <div class="chrome-min"><div class="l">QUESTION 01 · PRE</div><div class="r">09 / 28</div></div>
+    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr;gap:2vh">
+      <div data-anim="head" style="display:flex;flex-direction:column;gap:.6vh">
         <div class="t-meta" style="color:var(--accent)">5 份核心文档 · 同级</div>
         <h2 class="h-xl-zh" style="color:var(--paper)">协作文档</h2>
       </div>
       <div data-anim="body" style="display:flex;flex-direction:column;gap:0;justify-content:center">
-        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.05fr;gap:1.4vw;align-items:center;padding:1.45vh 0;border-top:1px solid rgba(255,255,255,.14)">
-          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.4vw,4vh);color:var(--accent);line-height:1">01</span>
-          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.18vw);color:var(--paper)">项目目标文档</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.3vh">需求与约束 · 仅人工可改 · 方向总开关</div></div>
-          <pre style="font-family:var(--mono);font-size:max(11px,.7vw);line-height:1.6;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:1vh .9vw;margin:0;white-space:pre;overflow:hidden">- [ ] 用户登录功能
-- [ ] 用户注册功能</pre>
+        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.1fr;gap:1.2vw;align-items:center;padding:1.2vh 0;border-top:1px solid rgba(255,255,255,.14)">
+          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.2vw,3.6vh);color:var(--accent);line-height:1">01</span>
+          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(14px,1.12vw);color:var(--paper)">项目目标文档</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.2vh">需求与约束 · 仅人工可改 · 方向总开关</div></div>
+          <pre style="font-family:var(--mono);font-size:max(10px,.66vw);line-height:1.5;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:.8vh .8vw;margin:0;white-space:pre;overflow:hidden">- [ ] 多卡 RL 训练</pre>
         </div>
-        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.05fr;gap:1.4vw;align-items:center;padding:1.45vh 0;border-top:1px solid rgba(255,255,255,.14)">
-          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.4vw,4vh);color:var(--accent);line-height:1">02</span>
-          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.18vw);color:var(--paper)">协作日志</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.3vh">智能体通信唯一媒介 · 只追加 · 初始 PLN_WAIT</div></div>
-          <pre style="font-family:var(--mono);font-size:max(11px,.7vw);line-height:1.6;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:1vh .9vw;margin:0;white-space:pre;overflow:hidden">## [时间] 角色 — 动作
+        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.1fr;gap:1.2vw;align-items:center;padding:1.2vh 0;border-top:1px solid rgba(255,255,255,.14)">
+          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.2vw,3.6vh);color:var(--accent);line-height:1">02</span>
+          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(14px,1.12vw);color:var(--paper)">协作日志</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.2vh">智能体通信唯一媒介 · 只追加</div></div>
+          <pre style="font-family:var(--mono);font-size:max(10px,.66vw);line-height:1.5;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:.8vh .8vw;margin:0;white-space:pre;overflow:hidden">## 角色 — 动作
 状态：PLN_ING</pre>
         </div>
-        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.05fr;gap:1.4vw;align-items:center;padding:1.45vh 0;border-top:1px solid rgba(255,255,255,.14)">
-          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.4vw,4vh);color:var(--paper);line-height:1">03</span>
-          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.18vw);color:var(--paper)">规划者指导</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.3vh">规划者行为规范与可声明状态</div></div>
-          <pre style="font-family:var(--mono);font-size:max(11px,.7vw);line-height:1.6;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:1vh .9vw;margin:0;white-space:pre;overflow:hidden"># 角色：规划者
-可声明 PLN_ING · REV_WAIT</pre>
+        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.1fr;gap:1.2vw;align-items:center;padding:1.2vh 0;border-top:1px solid rgba(255,255,255,.14)">
+          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.2vw,3.6vh);color:var(--paper);line-height:1">03</span>
+          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(14px,1.12vw);color:var(--paper)">规划者指导</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.2vh">行为规范与可声明状态</div></div>
+          <pre style="font-family:var(--mono);font-size:max(10px,.66vw);line-height:1.5;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:.8vh .8vw;margin:0;white-space:pre;overflow:hidden"># 角色：规划者
+PLN_ING · REV_WAIT</pre>
         </div>
-        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.05fr;gap:1.4vw;align-items:center;padding:1.45vh 0;border-top:1px solid rgba(255,255,255,.14)">
-          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.4vw,4vh);color:var(--paper);line-height:1">04</span>
-          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.18vw);color:var(--paper)">执行者指导</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.3vh">执行者行为规范与可声明状态</div></div>
-          <pre style="font-family:var(--mono);font-size:max(11px,.7vw);line-height:1.6;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:1vh .9vw;margin:0;white-space:pre;overflow:hidden"># 角色：执行者
-可声明 EXE_ING · REV_WAIT</pre>
+        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.1fr;gap:1.2vw;align-items:center;padding:1.2vh 0;border-top:1px solid rgba(255,255,255,.14)">
+          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.2vw,3.6vh);color:var(--paper);line-height:1">04</span>
+          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(14px,1.12vw);color:var(--paper)">执行者指导</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.2vh">行为规范 · 防虚报断言</div></div>
+          <pre style="font-family:var(--mono);font-size:max(10px,.66vw);line-height:1.5;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:.8vh .8vw;margin:0;white-space:pre;overflow:hidden">EXE_ING · REV_WAIT
+禁声明假 PASS</pre>
         </div>
-        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.05fr;gap:1.4vw;align-items:center;padding:1.45vh 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)">
-          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.4vw,4vh);color:var(--paper);line-height:1">05</span>
-          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.18vw);color:var(--paper)">审核者指导</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.3vh">审核者行为规范与可声明状态</div></div>
-          <pre style="font-family:var(--mono);font-size:max(11px,.7vw);line-height:1.6;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:1vh .9vw;margin:0;white-space:pre;overflow:hidden"># 角色：审核者
-REV_ING · EXE_WAIT · DONE</pre>
+        <div class="sub-card" style="display:grid;grid-template-columns:auto 1fr 1.1fr;gap:1.2vw;align-items:center;padding:1.2vh 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)">
+          <span style="font-family:var(--sans);font-weight:200;font-size:min(2.2vw,3.6vh);color:var(--paper);line-height:1">05</span>
+          <div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(14px,1.12vw);color:var(--paper)">审核者指导</div><div class="body-sm" style="color:rgba(250,250,248,.6);margin-top:.2vh">行为规范 · 实测复核</div></div>
+          <pre style="font-family:var(--mono);font-size:max(10px,.66vw);line-height:1.5;color:rgba(250,250,248,.82);background:rgba(255,255,255,.05);padding:.8vh .8vw;margin:0;white-space:pre;overflow:hidden">REV_ING · EXE_WAIT
+DONE</pre>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 14 · 状态机驱动 · 循环流水线 ============ -->
+
+<!-- ============ 10 · 状态机驱动 · 循环流水线 ============ -->
 <section class="slide light" data-layout="S14" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 02 · PRE</div><div class="r">15 / 31</div></div>
+    <div class="chrome-min"><div class="l">QUESTION 01 · PRE</div><div class="r">10 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:.8vh">
         <div class="t-meta" style="color:var(--accent)">STATE MACHINE · 闭环</div>
         <h2 class="h-xl-zh">状态机驱动</h2>
       </div>
-      <div data-anim="body" style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0">
-        <svg viewBox="0 0 1000 470" style="width:100%;height:100%;max-height:64vh" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <defs>
-            <marker id="arrInk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--ink)"/></marker>
-            <marker id="arrAccent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent)"/></marker>
-          </defs>
-          <path d="M284,82 L379,82" style="fill:none;stroke:var(--ink);stroke-width:1.6" marker-end="url(#arrInk)"/>
-          <path d="M613,82 L708,82" style="fill:none;stroke:var(--ink);stroke-width:1.6" marker-end="url(#arrInk)"/>
-          <path d="M829,120 L829,342" style="fill:none;stroke:var(--ink);stroke-width:1.6" marker-end="url(#arrInk)"/>
-          <path d="M716,388 L293,388" style="fill:none;stroke:var(--ink);stroke-width:1.6" marker-end="url(#arrInk)"/>
-          <path d="M171,350 L171,124" style="fill:none;stroke:var(--ink);stroke-width:1.6" marker-end="url(#arrInk)"/>
-          <path d="M500,120 L500,194" style="fill:none;stroke:var(--accent);stroke-width:1.6;stroke-dasharray:5 4" marker-end="url(#arrAccent)"/>
-          <text x="514" y="162" style="font-family:var(--sans),var(--sans-zh);font-size:14px;fill:var(--accent)">无新需求</text>
-          <text x="500" y="378" style="font-family:var(--sans),var(--sans-zh);font-size:14px;fill:var(--grey-3)" text-anchor="middle">审核通过 · 进入下一轮</text>
-          <text x="150" y="240" style="font-family:var(--sans),var(--sans-zh);font-size:14px;fill:var(--grey-3)" text-anchor="end">↻ 闭环循环</text>
-          <g>
-            <rect x="58" y="44" width="226" height="76" rx="2" style="fill:none;stroke:var(--ink);stroke-width:1.4"/>
-            <text x="76" y="70" style="font-family:var(--mono);font-size:13px;fill:var(--grey-3)">01</text>
-            <text x="76" y="93" style="font-family:var(--sans),var(--sans-zh);font-size:19px;font-weight:500;fill:var(--ink)">规划者规划</text>
-            <text x="76" y="110" style="font-family:var(--mono);font-size:11.5px;fill:var(--grey-3)">PLN_WAIT → PLN_ING</text>
-          </g>
-          <g>
-            <rect x="387" y="44" width="226" height="76" rx="2" style="fill:none;stroke:var(--ink);stroke-width:1.4"/>
-            <text x="405" y="70" style="font-family:var(--mono);font-size:13px;fill:var(--grey-3)">02</text>
-            <text x="405" y="93" style="font-family:var(--sans),var(--sans-zh);font-size:19px;font-weight:500;fill:var(--ink)">审核需求</text>
-            <text x="405" y="110" style="font-family:var(--mono);font-size:11.5px;fill:var(--grey-3)">REV_WAIT → REV_ING</text>
-          </g>
-          <g>
-            <rect x="716" y="44" width="226" height="76" rx="2" style="fill:var(--accent);stroke:var(--accent);stroke-width:1.4"/>
-            <text x="734" y="70" style="font-family:var(--mono);font-size:13px;fill:rgba(255,255,255,.7)">03</text>
-            <text x="734" y="93" style="font-family:var(--sans),var(--sans-zh);font-size:19px;font-weight:500;fill:var(--accent-on)">执行者编码</text>
-            <text x="734" y="110" style="font-family:var(--mono);font-size:11.5px;fill:rgba(255,255,255,.72)">EXE_WAIT → EXE_ING</text>
-          </g>
-          <g>
-            <rect x="716" y="350" width="226" height="76" rx="2" style="fill:none;stroke:var(--ink);stroke-width:1.4"/>
-            <text x="734" y="376" style="font-family:var(--mono);font-size:13px;fill:var(--grey-3)">04</text>
-            <text x="734" y="399" style="font-family:var(--sans),var(--sans-zh);font-size:19px;font-weight:500;fill:var(--ink)">审核产出</text>
-            <text x="734" y="416" style="font-family:var(--mono);font-size:11.5px;fill:var(--grey-3)">REV_WAIT → REV_ING</text>
-          </g>
-          <g>
-            <rect x="58" y="350" width="226" height="76" rx="2" style="fill:none;stroke:var(--ink);stroke-width:1.4"/>
-            <text x="76" y="376" style="font-family:var(--mono);font-size:13px;fill:var(--grey-3)">05</text>
-            <text x="76" y="399" style="font-family:var(--sans),var(--sans-zh);font-size:19px;font-weight:500;fill:var(--ink)">回到规划</text>
-            <text x="76" y="416" style="font-family:var(--mono);font-size:11.5px;fill:var(--grey-3)">下一轮 · PLN_WAIT</text>
-          </g>
-          <g>
-            <rect x="392" y="198" width="216" height="64" rx="2" style="fill:none;stroke:var(--accent);stroke-width:1.6;stroke-dasharray:6 4"/>
-            <text x="500" y="226" style="font-family:var(--mono);font-size:12px;fill:var(--accent)" text-anchor="middle">DONE</text>
-            <text x="500" y="250" style="font-family:var(--sans),var(--sans-zh);font-size:16px;font-weight:500;fill:var(--accent)" text-anchor="middle">终止 · 无新需求</text>
-          </g>
-        </svg>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">状态码是判断“是否行动”的唯一依据；审核驳回回到执行或规划，同一需求连续驳回 3 次触发阻断。</div>
+      <div data-anim="body" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;gap:2.4vh">
+  <div style="display:flex;align-items:stretch;gap:0;width:100%;max-width:1120px">
+    <div style="flex:1;border:1.4px solid var(--ink);padding:1.6vh 1vw;display:flex;flex-direction:column;gap:.5vh">
+      <div style="font-family:var(--mono);font-size:max(11px,.7vw);color:var(--grey-3)">01</div>
+      <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.25vw);color:var(--ink)">规划者规划</div>
+      <div style="font-family:var(--mono);font-size:max(10px,.62vw);color:var(--grey-3)">PLN_WAIT → PLN_ING</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;color:var(--ink);font-family:var(--mono);font-size:1.5vw;padding:0 .3vw">→</div>
+    <div style="flex:1;border:1.4px solid var(--ink);padding:1.6vh 1vw;display:flex;flex-direction:column;gap:.5vh">
+      <div style="font-family:var(--mono);font-size:max(11px,.7vw);color:var(--grey-3)">02</div>
+      <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.25vw);color:var(--ink)">审核需求</div>
+      <div style="font-family:var(--mono);font-size:max(10px,.62vw);color:var(--grey-3)">REV_WAIT → REV_ING</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;color:var(--ink);font-family:var(--mono);font-size:1.5vw;padding:0 .3vw">→</div>
+    <div style="flex:1;background:var(--accent);border:1.4px solid var(--accent);padding:1.6vh 1vw;display:flex;flex-direction:column;gap:.5vh">
+      <div style="font-family:var(--mono);font-size:max(11px,.7vw);color:rgba(255,255,255,.72)">03</div>
+      <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.25vw);color:var(--accent-on)">执行者编码</div>
+      <div style="font-family:var(--mono);font-size:max(10px,.62vw);color:rgba(255,255,255,.72)">EXE_WAIT → EXE_ING</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;color:var(--ink);font-family:var(--mono);font-size:1.5vw;padding:0 .3vw">→</div>
+    <div style="flex:1;border:1.4px solid var(--ink);padding:1.6vh 1vw;display:flex;flex-direction:column;gap:.5vh">
+      <div style="font-family:var(--mono);font-size:max(11px,.7vw);color:var(--grey-3)">04</div>
+      <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.25vw);color:var(--ink)">审核产出</div>
+      <div style="font-family:var(--mono);font-size:max(10px,.62vw);color:var(--grey-3)">REV_WAIT → REV_ING</div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;color:var(--ink);font-family:var(--mono);font-size:1.5vw;padding:0 .3vw">→</div>
+    <div style="flex:1;border:1.4px solid var(--ink);padding:1.6vh 1vw;display:flex;flex-direction:column;gap:.5vh">
+      <div style="font-family:var(--mono);font-size:max(11px,.7vw);color:var(--grey-3)">05</div>
+      <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.25vw);color:var(--ink)">回到规划</div>
+      <div style="font-family:var(--mono);font-size:max(10px,.62vw);color:var(--grey-3)">下一轮 · PLN_WAIT</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:1vw;width:100%;max-width:1120px">
+    <div style="font-family:var(--mono);color:var(--accent);font-size:max(15px,1.1vw)">↻</div>
+    <div style="flex:1;border-top:1.6px dashed var(--accent);position:relative">
+      <div style="position:absolute;left:0;top:-8px;color:var(--accent);font-family:var(--mono);font-size:1.3vw">←</div>
+    </div>
+    <div class="t-meta" style="color:var(--accent)">05 回到 01 · 闭环循环</div>
+  </div>
+  <div style="display:flex;align-items:center;gap:1vw;max-width:1120px">
+    <div class="t-meta" style="color:var(--grey-3)">02 无新需求</div>
+    <div style="font-family:var(--mono);color:var(--accent);font-size:max(15px,1.1vw)">↓</div>
+    <div style="border:1.6px dashed var(--accent);padding:.9vh 1.4vw;display:flex;align-items:baseline;gap:.8vw">
+      <div style="font-family:var(--mono);font-size:max(11px,.7vw);color:var(--accent)">DONE</div>
+      <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(14px,1.05vw);color:var(--accent)">终止 · 无新需求</div>
+    </div>
+  </div>
+</div>
+
+      <div data-anim="foot" class="t-meta" style="opacity:.5">状态码是判断"是否行动"的唯一依据；审核驳回回到执行或规划，同一需求连续驳回 3 次触发阻断。</div>
     </div>
   </div>
 </section>
 
-<!-- ============ 15 · 7 个状态码 ============ -->
-<section class="slide dark" data-layout="S15" data-animate="matrix-fill">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 02 · PRE</div><div class="r">16 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:1.6vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:.8vh">
-        <div class="t-meta" style="color:var(--accent)">STATE DIAGRAM · 状态流转</div>
-        <h2 class="h-xl-zh" style="color:var(--paper)">7 状态 · 12 条流转</h2>
-      </div>
-      <div data-anim="body" style="display:flex;align-items:center;justify-content:center;min-height:0">
-        <svg viewBox="0 0 1000 460" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;max-height:58vh;display:block" aria-label="PRE 七状态流转图">
-          <defs>
-            <marker id="arrFade" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:rgba(250,250,248,.6)"/></marker>
-            <marker id="arrAccent17" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" style="fill:var(--accent-bright)"/></marker>
-          </defs>
-
-          <!-- 闭环回流 REV_ING -> PLN_WAIT（强调"循环"，accent） -->
-          <path d="M708,70 L708,32 L150,32 L150,70" style="fill:none;stroke:var(--accent-bright);stroke-width:2" marker-end="url(#arrAccent17)"/>
-          <text x="429" y="22" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:12.5px;fill:var(--accent-bright)">驳回需求不合理 ／ 产出合格·进入下一轮</text>
-
-          <!-- 顶部正向链 -->
-          <line x1="45" y1="96" x2="74" y2="96" style="stroke:rgba(250,250,248,.55);stroke-width:1.4" marker-end="url(#arrFade)"/>
-          <text x="59" y="140" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">项目初始化</text>
-
-          <line x1="226" y1="96" x2="260" y2="96" style="stroke:rgba(250,250,248,.55);stroke-width:1.4" marker-end="url(#arrFade)"/>
-          <text x="243" y="140" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">规划者开始规划</text>
-
-          <line x1="412" y1="96" x2="446" y2="96" style="stroke:rgba(250,250,248,.55);stroke-width:1.4" marker-end="url(#arrFade)"/>
-          <text x="429" y="132" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">提出需求+方案</text>
-          <text x="429" y="148" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">或声明无新需求</text>
-
-          <line x1="598" y1="96" x2="632" y2="96" style="stroke:rgba(250,250,248,.55);stroke-width:1.4" marker-end="url(#arrFade)"/>
-          <text x="615" y="140" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">审核者开始审核</text>
-
-          <line x1="784" y1="96" x2="818" y2="96" style="stroke:rgba(250,250,248,.55);stroke-width:1.4" marker-end="url(#arrFade)"/>
-          <text x="801" y="140" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">确认无新需求</text>
-
-          <!-- 内环：审核 ↔ 执行 -->
-          <line x1="708" y1="122" x2="708" y2="348" style="stroke:rgba(250,250,248,.55);stroke-width:1.4" marker-end="url(#arrFade)"/>
-          <text x="714" y="226" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">需求合理·通过</text>
-          <text x="714" y="244" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">产出不合格·重做</text>
-
-          <line x1="522" y1="348" x2="522" y2="122" style="stroke:rgba(250,250,248,.55);stroke-width:1.4" marker-end="url(#arrFade)"/>
-          <text x="516" y="235" text-anchor="end" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">执行者完成产出</text>
-
-          <line x1="632" y1="374" x2="598" y2="374" style="stroke:rgba(250,250,248,.55);stroke-width:1.4" marker-end="url(#arrFade)"/>
-          <text x="615" y="402" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:12px;fill:rgba(250,250,248,.65)">执行者开始编码</text>
-
-          <!-- 起点 -->
-          <circle cx="38" cy="96" r="7" style="fill:var(--paper)"/>
-
-          <!-- 节点 -->
-          <g><rect x="74" y="70" width="152" height="52" rx="4" style="fill:rgba(255,255,255,.07);stroke:rgba(250,250,248,.2);stroke-width:1"/><text x="150" y="95" text-anchor="middle" style="font-family:var(--mono);font-weight:600;font-size:15px;fill:var(--paper)">PLN_WAIT</text><text x="150" y="112" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:11px;fill:rgba(250,250,248,.6)">规划者·待规划</text></g>
-          <g><rect x="260" y="70" width="152" height="52" rx="4" style="fill:rgba(255,255,255,.07);stroke:rgba(250,250,248,.2);stroke-width:1"/><text x="336" y="95" text-anchor="middle" style="font-family:var(--mono);font-weight:600;font-size:15px;fill:var(--paper)">PLN_ING</text><text x="336" y="112" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:11px;fill:rgba(250,250,248,.6)">规划中</text></g>
-          <g><rect x="446" y="70" width="152" height="52" rx="4" style="fill:rgba(255,255,255,.07);stroke:rgba(250,250,248,.2);stroke-width:1"/><text x="522" y="95" text-anchor="middle" style="font-family:var(--mono);font-weight:600;font-size:15px;fill:var(--paper)">REV_WAIT</text><text x="522" y="112" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:11px;fill:rgba(250,250,248,.6)">待审核</text></g>
-          <g><rect x="632" y="70" width="152" height="52" rx="4" style="fill:var(--accent);stroke:none"/><text x="708" y="95" text-anchor="middle" style="font-family:var(--mono);font-weight:600;font-size:15px;fill:var(--accent-on)">REV_ING</text><text x="708" y="112" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:11px;fill:rgba(255,255,255,.85)">审核者·审核中</text></g>
-          <g><rect x="818" y="70" width="152" height="52" rx="4" style="fill:rgba(255,255,255,.04);stroke:var(--accent);stroke-width:1.5;stroke-dasharray:4 4"/><text x="894" y="95" text-anchor="middle" style="font-family:var(--mono);font-weight:600;font-size:15px;fill:var(--accent-bright)">DONE</text><text x="894" y="112" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:11px;fill:rgba(250,250,248,.55)">终止</text></g>
-          <g><rect x="446" y="348" width="152" height="52" rx="4" style="fill:rgba(255,255,255,.07);stroke:rgba(250,250,248,.2);stroke-width:1"/><text x="522" y="373" text-anchor="middle" style="font-family:var(--mono);font-weight:600;font-size:15px;fill:var(--paper)">EXE_ING</text><text x="522" y="390" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:11px;fill:rgba(250,250,248,.6)">编码中</text></g>
-          <g><rect x="632" y="348" width="152" height="52" rx="4" style="fill:rgba(255,255,255,.07);stroke:rgba(250,250,248,.2);stroke-width:1"/><text x="708" y="373" text-anchor="middle" style="font-family:var(--mono);font-weight:600;font-size:15px;fill:var(--paper)">EXE_WAIT</text><text x="708" y="390" text-anchor="middle" style="font-family:var(--sans),var(--sans-zh);font-size:11px;fill:rgba(250,250,248,.6)">执行者·待编码</text></g>
-        </svg>
-      </div>
-      <div data-anim="foot" class="t-meta" style="color:rgba(250,250,248,.5)">审核者是分流枢纽：可向 EXE_WAIT（需求通过／产出驳回）、PLN_WAIT（进入下一轮／驳回需求）、DONE（确认无新需求）分流；规划者与执行者只在 ING ↔ REV_WAIT 之间声明。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 16 · 三个机制 ============ -->
-<section class="slide light" data-layout="S05" data-animate="grid-reveal">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 02 · PRE</div><div class="r">17 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">三个机制</h2>
-      </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;align-content:center">
-        <div style="border-top:2px solid var(--accent);padding-top:1.8vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta" style="color:var(--accent)">01 · SAFETY</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">防死循环</div>
-          <p class="body-sm" style="opacity:.72">同一需求连续驳回 3 次触发阻断，回退 PLN_WAIT，由规划者重新拆分。</p>
-        </div>
-        <div style="border-top:1px solid var(--ink);padding-top:1.8vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta">02 · VERSION</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">版本记录</div>
-          <p class="body-sm" style="opacity:.72">审核通过产出后直接 git commit，格式 V{日期}-{时间} V{语义版本}。</p>
-        </div>
-        <div style="border-top:1px solid var(--ink);padding-top:1.8vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta">03 · CONTROL</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">人工控制</div>
-          <p class="body-sm" style="opacity:.72">改项目目标文档，规划者下轮自动识别：</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5vh .8vw;font-family:var(--sans),var(--sans-zh);font-size:max(13px,.82vw);line-height:1.5;opacity:.78;margin-top:.4vh">
-            <span>· 调整方向</span><span>· 缩减范围</span><span>· 增加需求</span><span>· 暂停</span>
-          </div>
-        </div>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">.pre/ 默认 gitignore，保证智能体始终可在磁盘读取协作文档。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 20 · /loop 驱动 ============ -->
+<!-- ============ 11 · 监督者调度 · 单点 cron 续跑 ============ -->
 <section class="slide split" data-layout="S03" data-animate="split-statement">
   <div class="canvas-card">
     <div class="split-half">
       <div class="half b-ink" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">CHAPTER 02 · PRE</div><div class="r">18 / 31</div></div>
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">QUESTION 01 · SUPERVISOR</div><div class="r">11 / 28</div></div>
         <div data-anim="head" style="display:flex;flex-direction:column;gap:1.6vh">
-          <div class="t-meta" style="color:rgba(255,255,255,.7);letter-spacing:.22em">DRIVE · /LOOP</div>
-          <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.6vw,10vh);line-height:1.02;letter-spacing:-.025em;color:var(--paper)"><span style="font-style:italic;font-weight:300">/loop</span><br/>驱动</h2>
-          <p class="lead" style="color:rgba(250,250,248,.78);max-width:34ch">三角色各开一终端，以 /loop 3m 每 3 分钟轮询协作日志；每轮先读日志，状态匹配则行动。</p>
+          <div class="t-meta" style="color:rgba(255,255,255,.7);letter-spacing:.22em">SINGLE POINT · 单点续跑</div>
+          <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5vw,9vh);line-height:1.02;letter-spacing:-.025em;color:var(--paper)">让循环<br/>不停<span style="font-style:italic;font-weight:300">下来</span>。</h2>
         </div>
-        <div class="t-meta" style="color:rgba(255,255,255,.5)">各 loop 的 job ID 写入协作日志以便核对。</div>
+        <div class="t-meta" style="color:rgba(255,255,255,.5)">监督者 · Supervisor</div>
       </div>
       <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
-        <div class="chrome-min" style="margin-bottom:0"><div class="l">COMMAND · SAMPLE</div><div class="r"></div></div>
-        <pre data-anim="code" style="font-family:var(--mono);font-size:max(14px,.84vw);line-height:1.6;background:var(--grey-1);padding:2.4vh 1.6vw;overflow:auto;white-space:pre;color:var(--ink);margin:0"><span style="color:var(--accent)">/loop</span> 3m "读 {项目路径}/.pre/{项目名}/规划者指导.md
-并作为规划者执行。
-每轮先读协作日志确认最新状态。"</pre>
-        <div class="t-meta" style="opacity:.55">读日志 → 状态匹配则行动 → 写新条目、更新状态码</div>
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">EVOLUTION · 替换 /loop</div><div class="r"></div></div>
+        <div data-anim="body" style="display:flex;flex-direction:column;gap:1.8vh">
+          <p class="lead" style="max-width:34ch">原来靠开三个终端、各自 <span class="mono" style="font-family:var(--mono)">/loop</span> 让角色转——人会忘关、会断。</p>
+          <p class="body" style="opacity:.82;max-width:34ch">演进为<strong style="font-weight:500">单点监督者</strong>：一条 cron 定时触发，按 <span class="mono" style="font-family:var(--mono)">state.json</span> 决定该拉起哪个角色。</p>
+          <div style="border-top:1px solid var(--grey-2);padding-top:1.4vh">
+            <div class="t-meta" style="color:var(--accent);margin-bottom:.6vh">续跑方式</div>
+            <pre style="font-family:var(--mono);font-size:max(11px,.72vw);line-height:1.6;color:var(--ink);background:var(--grey-1);padding:1vh .9vw;margin:0;white-space:pre;overflow:hidden">claude -p --resume &lt;session-id&gt;</pre>
+            <p class="body-sm" style="opacity:.7;margin-top:.6vh">headless 无界面续跑既有会话，关掉终端也不丢上下文。</p>
+          </div>
+        </div>
+        <div class="t-meta" style="opacity:.55">三终端 → 单点 cron · 闭环更稳</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 17 · PRE 安装与使用 · 横向时间线 ============ -->
-<section class="slide light" data-layout="S11" data-animate="timeline-walk">
+<!-- ============ 12 · 三个机制 · 自主保障 ============ -->
+<section class="slide light" data-layout="S05" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 02 · PRE</div><div class="r">19 / 31</div></div>
+    <div class="chrome-min"><div class="l">QUESTION 01 · PRE</div><div class="r">12 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">安装与使用</h2>
+        <h2 class="h-xl-zh">三机制<span style="color:var(--accent)">保自主</span></h2>
       </div>
-      <div data-anim="body" style="display:flex;align-items:center">
-        <div class="timeline-h">
-          <div class="tl-row">
-            <div class="th-node up"><div class="label"><span class="yr">01</span><span class="name">安装 skill</span><span class="desc">npx skills add</span></div><span class="dot"></span></div>
-            <div class="th-node down accent"><div class="label"><span class="yr">02</span><span class="name">触发</span><span class="desc">表达协同意图</span></div><span class="dot"></span></div>
-            <div class="th-node up"><div class="label"><span class="yr">03</span><span class="name">语言检测</span><span class="desc">中 / 英确认</span></div><span class="dot"></span></div>
-            <div class="th-node down"><div class="label"><span class="yr">04</span><span class="name">需求收集</span><span class="desc">2 步交互</span></div><span class="dot"></span></div>
-            <div class="th-node up"><div class="label"><span class="yr">05</span><span class="name">生成 + 启动</span><span class="desc">5 文档 · 3 loop</span></div><span class="dot"></span></div>
+      <div data-anim="body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;align-content:center">
+        <div style="background:var(--grey-1);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
+          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--ink)">01</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">目标变更检测</div>
+          <p class="body-sm" style="opacity:.72;margin-top:auto">项目目标文档做 md5，一改方向自动重置，团队重读新目标。</p>
+          <div class="t-meta" style="opacity:.5">MD5 · 方向总开关</div>
+        </div>
+        <div style="background:var(--grey-1);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
+          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--ink)">02</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">状态机闭环</div>
+          <p class="body-sm" style="opacity:.72;margin-top:auto">状态码驱动流转，审核驳回回退到执行或规划，连续 3 次驳回阻断。</p>
+          <div class="t-meta" style="opacity:.5">PLN · REV · EXE</div>
+        </div>
+        <div style="background:var(--accent);color:var(--accent-on);padding:2.4vh 1.6vw;display:flex;flex-direction:column;gap:1vh;min-height:0">
+          <div class="num-mega" style="font-size:min(5vw,9vh);color:var(--accent-on)">03</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(18px,1.7vw);letter-spacing:-.015em">只追加日志</div>
+          <p class="body-sm" style="color:rgba(255,255,255,.88);margin-top:auto">协作日志 append-only，既是通信唯一媒介，也是事后审计依据。</p>
+          <div class="t-meta" style="color:rgba(255,255,255,.7)">APPEND-ONLY</div>
+        </div>
+      </div>
+      <div data-anim="foot" class="t-meta" style="opacity:.5">目标可改、状态可控、过程可审——自主才落得地。</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 13 · ros-ai-builder 案例① · 初衷与实跑 ============ -->
+<section class="slide light" data-layout="S19" data-animate="grid-reveal">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">CASE · ros-ai-builder</div><div class="r">13 / 28</div></div>
+    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
+      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
+        <div class="t-meta" style="color:var(--accent)">真实跑过的项目</div>
+        <h2 class="h-xl-zh">初衷与<span style="color:var(--accent)">实跑</span></h2>
+      </div>
+      <div data-anim="body" class="grid-12" style="align-content:center;gap:3vh 1.2vw">
+        <div class="span-3" style="border-top:2px solid var(--accent);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta" style="color:var(--accent)">01 · 初衷</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">多卡 RL 训练</div>
+          <p class="body-sm" style="opacity:.72">昇腾 NPU 多卡强化学习训练 Transformer，求解车辆路径问题（VRP）。</p>
+        </div>
+        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">02 · 基准</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">对标 pyvrp</div>
+          <p class="body-sm" style="opacity:.72">gap ≤ 10%、节点规模 200；里程碑用 HTML 汇报。</p>
+        </div>
+        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">03 · 实跑</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">PRE 接管</div>
+          <p class="body-sm" style="opacity:.72"><span class="mono" style="font-family:var(--mono)">.pre/ros-ai/</span> 监督者按 state.json 拉起三角色自主跑。</p>
+        </div>
+        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">04 · 规模</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">2344 行日志</div>
+          <p class="body-sm" style="opacity:.72">协作日志 2344 行、28+ 轮——全程无人盯，自主推进。</p>
+        </div>
+      </div>
+      <div data-anim="foot" class="t-meta" style="opacity:.5">真正干活时发生了什么？两个故事。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14 · ros-ai-builder 案例② · 虚报被揪 + 改目标回正轨 ============ -->
+<section class="slide dark" data-layout="S08" data-animate="duo-mirror">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">CASE · ros-ai-builder</div><div class="r">14 / 28</div></div>
+    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
+      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
+        <h2 class="h-xl-zh" style="color:var(--paper)">两个<span style="color:var(--accent)">真实</span>回合</h2>
+      </div>
+      <div data-anim="body" style="display:grid;grid-template-columns:1fr 1fr;gap:0;align-content:center">
+        <div style="padding:2.4vh 1.8vw;background:rgba(255,255,255,.05);margin-right:1.2vw;display:flex;flex-direction:column;gap:1.2vh">
+          <div class="t-meta" style="color:var(--accent)">① 虚报被揪 · 第 6 轮</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(16px,1.25vw);color:var(--paper);letter-spacing:-.01em">执行者声明 DDP SELF-TEST PASS，unserved 7→0.08</div>
+          <p class="body-sm" style="color:rgba(250,250,248,.7)">审核者实测发现坍缩：unserved 9.69、loss 万级、reward -496——判假 PASS 驳回。</p>
+          <div style="border-top:1px solid rgba(255,255,255,.18);padding-top:1vh">
+            <div class="t-meta" style="color:rgba(250,250,248,.5);margin-bottom:.4vh">处置</div>
+            <p class="body-sm" style="color:rgba(250,250,248,.72)">修复后补 4 项防虚报断言，堵住"自报 PASS"。</p>
+          </div>
+        </div>
+        <div style="padding-left:2.4vw;display:flex;flex-direction:column;gap:1.2vh">
+          <div class="t-meta" style="color:var(--accent)">② 改目标回正轨 · 第 20 轮</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(16px,1.25vw);color:var(--paper);letter-spacing:-.01em">BC 蒸馏死循环，gap 飙到 235%</div>
+          <p class="body-sm" style="color:rgba(250,250,248,.7)">规划者援引历史决议 r21/24/26/28，主动切换架构，跳出死循环。</p>
+          <div style="border-top:1px solid var(--grey-2);padding-top:1vh">
+            <div class="t-meta" style="color:var(--accent);margin-bottom:.4vh">处置</div>
+            <p class="body-sm" style="color:rgba(250,250,248,.72)">我在项目目标里加"gap&gt;20% 换思路参考 reference"条款，方向被引导回正轨。</p>
           </div>
         </div>
       </div>
-      <div data-anim="foot" style="display:flex;justify-content:space-between;align-items:end">
-        <span class="t-meta" style="opacity:.55">npx skills add zhangzhanluo/pre-engineering</span>
-        <span class="t-meta" style="opacity:.55">更新：重跑命令，已有 .pre/ 文档不受影响</span>
-      </div>
+      <div data-anim="foot" class="t-meta" style="color:rgba(250,250,248,.5)">审核者防虚报、规划者纠偏、人只改目标——各司其职的具象。</div>
     </div>
   </div>
 </section>
 
-<!-- ============ 22 · 实践要点 ============ -->
-<section class="slide light" data-layout="S05" data-animate="grid-reveal">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 02 · PRE</div><div class="r">20 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">实践要点</h2>
-      </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;align-content:center">
-        <div style="border-top:2px solid var(--accent);padding-top:1.8vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta" style="color:var(--accent)">01 · MODEL</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">模型选型匹配角色</div>
-          <p class="body-sm" style="opacity:.72">规划者用强推理模型，执行者用快速编码模型，审核者用细致审核模型——依职责而非绝对能力。</p>
-        </div>
-        <div style="border-top:1px solid var(--ink);padding-top:1.8vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta">02 · GITIGNORE</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">.pre/ 默认忽略</div>
-          <p class="body-sm" style="opacity:.72">保证智能体始终可在磁盘读取协作文档；需版本管理可手动取消忽略并提交基线。</p>
-        </div>
-        <div style="border-top:1px solid var(--ink);padding-top:1.8vh;display:flex;flex-direction:column;gap:1vh">
-          <div class="t-meta">03 · SAFETY</div>
-          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">安全检查</div>
-          <p class="body-sm" style="opacity:.72">不覆盖已有文件、日志 append-only、项目目标文档受保护（智能体只读不改）。</p>
-        </div>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">skill 模板与项目协作文档相互分离，更新 skill 不影响已有 .pre/ 文档。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 23 · Chapter 03 · Claude Code Agent Monitor ============ -->
+<!-- ============ 15 · Q2 · 第一时间触达 封章 ============ -->
 <section class="slide accent" data-layout="SWISS-COVER-ASCII" data-animate="hero">
   <div class="canvas-card">
     <canvas class="ascii-bg" aria-hidden="true"></canvas>
     <div class="chrome-min">
-      <div class="l">CHAPTER 03 · MONITOR · OBSERVABILITY</div>
-      <div class="r">21 / 31</div>
+      <div class="l">QUESTION 02 · NOTIFY · DECISION</div>
+      <div class="r">15 / 28</div>
     </div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:1fr auto;gap:2.6vh">
-      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.6vw,10vh);line-height:1.02;letter-spacing:-.025em;color:#fff">跨项目多会话<br/><span style="font-style:italic;font-weight:300">实时</span>监控</h1>
+      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(7vw,12vh);line-height:1.02;letter-spacing:-.025em;color:#fff">第一时间<br/><span style="font-style:italic;font-weight:300">触达</span></h1>
       <div data-anim="bottom" style="display:grid;grid-template-rows:auto auto;gap:1.6vh;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh">
-        <div data-anim="lead" class="lead" style="max-width:58ch;color:rgba(255,255,255,.86)">Claude Code Agent Monitor · 本地优先的会话实时监控：Hook 上报、SQLite 存储、WebSocket 推送。</div>
+        <div data-anim="lead" class="lead" style="max-width:58ch;color:rgba(255,255,255,.86)">遇到需人决策的内容如何第一时间通知用户？——把决策问题推到人面前。</div>
         <div style="display:flex;justify-content:space-between;align-items:end">
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">定位 · 原理 · 能力 · 价值</div>
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ 22 / 31</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">网页表单弹窗拍板 · 任务完成报告弹浏览器</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ 16 / 28</div>
         </div>
       </div>
     </div>
@@ -1970,10 +1731,134 @@ REV_ING · EXE_WAIT · DONE</pre>
 </section>
 
 
+<!-- ============ 16 · 决策弹窗 · 网页表单拍板 ============ -->
+<section class="slide split" data-layout="S03" data-animate="split-statement">
+  <div class="canvas-card">
+    <div class="split-half">
+      <div class="half b-accent" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between;position:relative;overflow:hidden">
+        <canvas class="ascii-bg" aria-hidden="true"></canvas>
+        <div class="chrome-min" style="margin-bottom:0;position:relative;z-index:1"><div class="l">QUESTION 02 · DECISION</div><div class="r">16 / 28</div></div>
+        <div data-anim="head" style="display:flex;flex-direction:column;gap:1.6vh;position:relative;z-index:1">
+          <div class="t-meta" style="color:rgba(255,255,255,.78);letter-spacing:.22em">PUSH TO ME · 推到我面前</div>
+          <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.4vw,9.4vh);line-height:1.02;letter-spacing:-.025em;color:#fff">弹窗<br/><span style="font-style:italic;font-weight:300">拍板</span>。</h2>
+        </div>
+        <div class="t-meta" style="color:rgba(255,255,255,.6);position:relative;z-index:1">凡要拍板的选择，都走网页表单。</div>
+      </div>
+      <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">decision-form.py · MECHANISM</div><div class="r"></div></div>
+        <div data-anim="body" style="display:flex;flex-direction:column;gap:1.6vh">
+          <p class="lead" style="max-width:34ch">自包含 Python 弹窗服务，把"等你确认"变成"主动弹到你面前"。</p>
+          <div style="border-top:1px solid var(--grey-2);padding-top:1.2vh">
+            <div class="t-meta" style="color:var(--accent);margin-bottom:.6vh">机制</div>
+            <pre style="font-family:var(--mono);font-size:max(10px,.66vw);line-height:1.55;color:var(--ink);background:var(--grey-1);padding:1.1vh .9vw;margin:0;white-space:pre;overflow:hidden">DECISION_TITLE="标题"
+DECISION_OPTIONS='[{label,desc,value}]'
+python3 ~/.claude/scripts/decision-form.py
+# 起本地服务 → 开浏览器 → 勾选
+# 写带 pid 唯一 JSON → 服务退出
+# 主进程轮询该文件取 {choice,note}</pre>
+          </div>
+          <p class="body-sm" style="opacity:.72">环境变量传参，后台起服务自动开浏览器；带进程号的结果文件避免多会话串台。</p>
+        </div>
+        <div class="t-meta" style="opacity:.55">ThreadingHTTPServer · 127.0.0.1 · POST /submit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 17 · 报告弹浏览器 · 任务完成即送达 ============ -->
+<section class="slide light" data-layout="S19" data-animate="grid-reveal">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">QUESTION 02 · REPORT</div><div class="r">17 / 28</div></div>
+    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
+      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
+        <h2 class="h-xl-zh">完成即<span style="color:var(--accent)">送达</span></h2>
+      </div>
+      <div data-anim="body" class="grid-12" style="align-content:center;gap:3vh 1.2vw">
+        <div class="span-3" style="border-top:2px solid var(--accent);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta" style="color:var(--accent)">01 · 触发</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">规则驱动</div>
+          <p class="body-sm" style="opacity:.72">CLAUDE.md 规则：复杂任务完成自动生成报告。</p>
+        </div>
+        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">02 · 形态</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">单文件 HTML</div>
+          <p class="body-sm" style="opacity:.72">自包含、内联 CSS、不外链资源，随带随看。</p>
+        </div>
+        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">03 · 板块</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">五段式</div>
+          <p class="body-sm" style="opacity:.72">指令总结 · 完成过程 · 完成结果 · 耗时统计 · 项目信息。</p>
+        </div>
+        <div class="span-3" style="border-top:1px solid var(--ink);padding-top:1.6vh;display:flex;flex-direction:column;gap:1vh">
+          <div class="t-meta">04 · 落位</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.7vw);letter-spacing:-.015em">open 弹出</div>
+          <p class="body-sm" style="opacity:.72">存任务报告目录，生成完用浏览器弹出。</p>
+        </div>
+      </div>
+      <div data-anim="foot" class="t-meta" style="opacity:.5">~/Documents/ZZLNote/ClaudeCode日志/任务报告/ · 不再卡在等确认。</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 18 · Q3 · Agent Monitor 封章 ============ -->
+<section class="slide accent" data-layout="SWISS-COVER-ASCII" data-animate="hero">
+  <div class="canvas-card">
+    <canvas class="ascii-bg" aria-hidden="true"></canvas>
+    <div class="chrome-min">
+      <div class="l">QUESTION 03 · MONITOR · OBSERVABILITY</div>
+      <div class="r">18 / 28</div>
+    </div>
+    <div style="flex:1;padding:0;display:grid;grid-template-rows:1fr auto;gap:2.6vh">
+      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(5.6vw,10vh);line-height:1.02;letter-spacing:-.025em;color:#fff">跨项目多会话<br/><span style="font-style:italic;font-weight:300">实时</span>监控</h1>
+      <div data-anim="bottom" style="display:grid;grid-template-rows:auto auto;gap:1.6vh;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh">
+        <div data-anim="lead" class="lead" style="max-width:58ch;color:rgba(255,255,255,.86)">多任务如何实时监控运行细节——Claude Code Agent Monitor，本地优先的会话实时监控。</div>
+        <div style="display:flex;justify-content:space-between;align-items:end">
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">定位 · 原理 · 能力 · 价值</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ 19 / 28</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 19 · Claude Code Agent Monitor · 项目 ============ -->
+<section class="slide split" data-layout="S03" data-animate="split-statement">
+  <div class="canvas-card">
+    <div class="split-half">
+      <div class="half" style="padding:5.6vh 3.6vw 4.4vh;justify-content:space-between">
+        <div class="chrome-min" style="margin-bottom:0"><div class="l">QUESTION 03 · MONITOR · PROJECT</div><div class="r">19 / 28</div></div>
+        <div data-anim="head" style="display:flex;flex-direction:column;gap:1.4vh">
+          <div class="t-meta" style="color:var(--accent);letter-spacing:.22em">OPEN SOURCE · 项目来源</div>
+          <h2 style="font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(4.4vw,8vh);line-height:1.02;letter-spacing:-.025em">Claude Code<br/>Agent Monitor</h2>
+          <p class="lead" style="max-width:32ch">一个开源项目:本地优先、跨项目多会话的实时监控面板。</p>
+          <div class="t-meta" style="display:flex;gap:1.6vw;flex-wrap:wrap;align-items:baseline">
+            <span><strong style="font-weight:600;color:var(--accent);font-size:1.15em">805</strong> star</span>
+            <span><strong style="font-weight:600">181</strong> fork</span>
+            <span><strong style="font-weight:600">656</strong> commits</span>
+            <span style="opacity:.55">截至 2026-07 · TypeScript · MIT</span>
+          </div>
+        </div>
+        <div data-anim="body" style="display:flex;flex-direction:column;gap:1.1vh;border-top:1px solid var(--grey-2);padding-top:1.4vh">
+          <div class="body-sm" style="opacity:.85"><strong style="font-weight:500;color:var(--accent)">本地优先</strong> · 数据全程停留本机,不经云端。</div>
+          <div class="body-sm" style="opacity:.85"><strong style="font-weight:500">实时推送</strong> · Hook 采集 + WebSocket,免轮询。</div>
+          <div class="body-sm" style="opacity:.85"><strong style="font-weight:500">可视看板</strong> · 会话/活动流/详情,暴露阻塞。</div>
+        </div>
+        <div class="t-meta" style="opacity:.55">github.com/hoangsonww/Claude-Code-Agent-Monitor</div>
+      </div>
+      <div class="half" style="padding:3vh 3vw;justify-content:center;align-items:stretch;display:flex">
+        <div data-anim="body" style="flex:1;border:1px solid var(--grey-2);overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--paper);min-height:0">
+          <img src="images/19-github.png" data-image-slot="s03-split-image" alt="Claude Code Agent Monitor GitHub 仓库页面" style="max-width:100%;max-height:100%;object-fit:contain">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 19 · Monitor 工作原理 · 横向时间线 ============ -->
 <section class="slide light" data-layout="S11" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 03 · MONITOR</div><div class="r">22 / 31</div></div>
+    <div class="chrome-min"><div class="l">QUESTION 03 · MONITOR</div><div class="r">20 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:2.6vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:.8vh">
         <div class="t-meta" style="color:var(--accent)">DATA FLOW · 端到端</div>
@@ -2010,15 +1895,15 @@ REV_ING · EXE_WAIT · DONE</pre>
           <div class="body-sm" style="color:var(--text-secondary);line-height:1.55;margin-top:.3vh">看板、活动流、详情实时刷新，按状态分列并暴露阻塞。</div>
         </div>
       </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">数据全程停留本地，不经云端：来源 → 采集 → 存储 → 推送 → 呈现；可选本地 MCP server 接入其它工具。</div>
+      <div data-anim="foot" class="t-meta" style="opacity:.5">数据全程停留本地，不经云端：来源 → 采集 → 存储 → 推送 → 呈现。</div>
     </div>
   </div>
 </section>
 
-<!-- ============ 20 · Monitor 主要能力 · 六格 ============ -->
+<!-- ============ 20 · Monitor 主要能力 · 九格 ============ -->
 <section class="slide dark" data-layout="S16" data-animate="field-notes">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 03 · MONITOR</div><div class="r">23 / 31</div></div>
+    <div class="chrome-min"><div class="l">QUESTION 03 · MONITOR</div><div class="r">21 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
         <h2 class="h-xl-zh" style="color:var(--paper)">主要能力</h2>
@@ -2031,7 +1916,7 @@ REV_ING · EXE_WAIT · DONE</pre>
         <div style="background:rgba(255,255,255,.06);padding:1.8vh 1.2vw;display:flex;flex-direction:column;gap:.5vh"><div class="t-meta" style="color:rgba(250,250,248,.55)">05</div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw);color:var(--paper)">活动流</div><p class="body-sm" style="color:rgba(250,250,248,.62)">实时事件 · 多维过滤</p></div>
         <div style="background:rgba(255,255,255,.06);padding:1.8vh 1.2vw;display:flex;flex-direction:column;gap:.5vh"><div class="t-meta" style="color:rgba(250,250,248,.55)">06</div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw);color:var(--paper)">分析</div><p class="body-sm" style="color:rgba(250,250,248,.62)">Token · 工具 · 热力图</p></div>
         <div style="background:rgba(255,255,255,.06);padding:1.8vh 1.2vw;display:flex;flex-direction:column;gap:.5vh"><div class="t-meta" style="color:rgba(250,250,248,.55)">07</div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw);color:var(--paper)">工作流</div><p class="body-sm" style="color:rgba(250,250,248,.62)">编排 DAG · 协作网络</p></div>
-        <div style="background:rgba(255,255,255,.06);padding:1.8vh 1.2vw;display:flex;flex-direction:column;gap:.5vh"><div class="t-meta" style="color:rgba(250,250,248,.55)">08</div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw);color:var(--paper)">系统健康</div><p class="body-sm" style="color:rgba(250,250,248,.62)">评分 · 缓存 · 错误率（5s 刷新）</p></div>
+        <div style="background:rgba(255,255,255,.06);padding:1.8vh 1.2vw;display:flex;flex-direction:column;gap:.5vh"><div class="t-meta" style="color:rgba(250,250,248,.55)">08</div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw);color:var(--paper)">系统健康</div><p class="body-sm" style="color:rgba(250,250,248,.62)">评分 · 缓存 · 错误率</p></div>
         <div style="background:rgba(255,255,255,.06);padding:1.8vh 1.2vw;display:flex;flex-direction:column;gap:.5vh"><div class="t-meta" style="color:rgba(250,250,248,.55)">09</div><div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw);color:var(--paper)">多语言 · 通知</div><p class="body-sm" style="color:rgba(250,250,248,.62)">en / zh / vi · 浏览器通知</p></div>
       </div>
       <div data-anim="foot" class="t-meta" style="color:rgba(250,250,248,.5)">数据自主：本地 SQLite，不上传；适用于有数据合规要求的场景。</div>
@@ -2039,10 +1924,11 @@ REV_ING · EXE_WAIT · DONE</pre>
   </div>
 </section>
 
+
 <!-- ============ 21 · 看板与总览截图 ============ -->
 <section class="slide light" data-layout="S15" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 03 · MONITOR</div><div class="r">24 / 31</div></div>
+    <div class="chrome-min"><div class="l">QUESTION 03 · MONITOR</div><div class="r">22 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:2.6vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
         <h2 class="h-xl-zh">看板与总览</h2>
@@ -2066,10 +1952,10 @@ REV_ING · EXE_WAIT · DONE</pre>
   </div>
 </section>
 
-<!-- ============ 28 · 使用方式与价值 ============ -->
+<!-- ============ 22 · 使用方式与价值 ============ -->
 <section class="slide light" data-layout="S08" data-animate="duo-mirror">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 03 · MONITOR</div><div class="r">25 / 31</div></div>
+    <div class="chrome-min"><div class="l">QUESTION 03 · MONITOR</div><div class="r">23 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
         <h2 class="h-xl-zh">使用方式与价值</h2>
@@ -2095,100 +1981,32 @@ REV_ING · EXE_WAIT · DONE</pre>
   </div>
 </section>
 
-<!-- ============ 29 · Chapter 04 · 一些思考 ============ -->
+
+<!-- ============ 23 · Chapter 04 · 一些思考 封章 ============ -->
 <section class="slide accent" data-layout="SWISS-COVER-ASCII" data-animate="hero">
   <div class="canvas-card">
     <canvas class="ascii-bg" aria-hidden="true"></canvas>
     <div class="chrome-min">
-      <div class="l">CHAPTER 04 · THOUGHTS · OPEN QUESTIONS</div>
-      <div class="r">26 / 31</div>
+      <div class="l">CHAPTER 04 · THOUGHTS · 变与不变</div>
+      <div class="r">24 / 28</div>
     </div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:1fr auto;gap:2.6vh">
-      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(7vw,12vh);line-height:1.02;letter-spacing:-.025em;color:#fff">一些<span style="font-style:italic;font-weight:300">思考</span></h1>
+      <h1 data-anim="title" style="align-self:center;font-family:var(--sans),var(--sans-zh);font-weight:200;font-size:min(7vw,12vh);line-height:1.02;letter-spacing:-.025em;color:#fff">一点<span style="font-style:italic;font-weight:300">思考</span></h1>
       <div data-anim="bottom" style="display:grid;grid-template-rows:auto auto;gap:1.6vh;border-top:1px solid rgba(255,255,255,.22);padding-top:2vh">
-        <div data-anim="lead" class="lead" style="max-width:54ch;color:rgba(255,255,255,.86)">实践中浮现的四个待解问题。</div>
+        <div data-anim="lead" class="lead" style="max-width:54ch;color:rgba(255,255,255,.86)">在正确的路上做对的事情！</div>
         <div style="display:flex;justify-content:space-between;align-items:end">
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">知识库 · skill · 协同 · 变与不变</div>
-          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ 27 / 31</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">礁石与船 · 变与不变</div>
+          <div class="t-meta" style="color:rgba(255,255,255,.6)">→ 25 / 28</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 30 · 问题一 · 个人知识库 ============ -->
+<!-- ============ 24 · 变与不变 · 稳定问题 vs 可被解决 ============ -->
 <section class="slide light" data-layout="S19" data-animate="grid-reveal">
   <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 04 · THOUGHTS</div><div class="r">27 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">经验如何沉淀为可复用、<br/>可被 AI 检索的<span style="color:var(--accent)">知识资产</span>？</h2>
-      </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:1fr 1fr;gap:0;align-content:center">
-        <div style="padding-right:2.4vw;border-right:1px solid var(--grey-2)">
-          <div class="t-meta" style="color:var(--grey-3);margin-bottom:1.6vh">问题来源 · CONTEXT</div>
-          <p class="body" style="opacity:.8">经验散落于对话记录、本地笔记与个人记忆，缺乏结构化的保存与复用机制；AI 每次介入若缺少背景上下文，需从零理解，沟通成本重复发生。</p>
-        </div>
-        <div style="padding-left:2.4vw">
-          <div class="t-meta" style="color:var(--accent);margin-bottom:1.6vh">重要性 · WHY IT MATTERS</div>
-          <p class="body" style="opacity:.8">知识的可复用性决定 AI 协作的边际成本。缺乏沉淀机制时，每次协作都需重新沟通背景，积累无法形成复利；结构化的知识资产可被 AI 持续调用，使个人能力随时间累加而非归零。</p>
-        </div>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">对应本次分享中 LaTeX 模板、PRE 框架等"固化资产"的同一思路。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 31 · 问题二 · skill 稳定调用 ============ -->
-<section class="slide light" data-layout="S19" data-animate="grid-reveal">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 04 · THOUGHTS</div><div class="r">28 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">如何让 skill 该触发时触发、<br/>触发时一定能<span style="color:var(--accent)">按指令工作</span>？</h2>
-      </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:1fr 1fr;gap:0;align-content:center">
-        <div style="padding-right:2.4vw;border-right:1px solid var(--grey-2)">
-          <div class="t-meta" style="color:var(--grey-3);margin-bottom:1.6vh">问题来源 · CONTEXT</div>
-          <p class="body" style="opacity:.8">skill 的调用依赖模型对其 description 的理解与匹配；关键词枚举与自然表达覆盖两种写法直接影响触发率，描述不当则触发不稳——该触发时未触发，或触发后未按指令执行。</p>
-        </div>
-        <div style="padding-left:2.4vw">
-          <div class="t-meta" style="color:var(--accent);margin-bottom:1.6vh">重要性 · WHY IT MATTERS</div>
-          <p class="body" style="opacity:.8">skill 是将工作流固化为可复用资产的关键机制。调用不稳定则资产无法被可靠复用——相当于具备工具却无法在需要时启用，其价值难以兑现。</p>
-        </div>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">description 的写法是触发率的核心变量。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 32 · 问题三 · 多智能体各司其职 ============ -->
-<section class="slide light" data-layout="S19" data-animate="grid-reveal">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 04 · THOUGHTS</div><div class="r">29 / 31</div></div>
-    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
-      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
-        <h2 class="h-xl-zh">多智能体并行时，如何<br/>不冲突、不重复、<span style="color:var(--accent)">不互相覆盖</span>？</h2>
-      </div>
-      <div data-anim="body" style="display:grid;grid-template-columns:1fr 1fr;gap:0;align-content:center">
-        <div style="padding-right:2.4vw;border-right:1px solid var(--grey-2)">
-          <div class="t-meta" style="color:var(--grey-3);margin-bottom:1.6vh">问题来源 · CONTEXT</div>
-          <p class="body" style="opacity:.8">多个智能体共享同一工作空间（文件系统、代码库），无协调机制则产生竞态、重复劳动与互相覆盖；单一智能体在缺乏制衡时也易沿偏差方向持续推进。</p>
-        </div>
-        <div style="padding-left:2.4vw">
-          <div class="t-meta" style="color:var(--accent);margin-bottom:1.6vh">重要性 · WHY IT MATTERS</div>
-          <p class="body" style="opacity:.8">多智能体是放大 AI 产能的方向，但协调复杂度常抵消并行收益。缺乏可靠的各司其职机制时，管理难度反高于单智能体，并行可能引入额外冲突成本而非提效。</p>
-        </div>
-      </div>
-      <div data-anim="foot" class="t-meta" style="opacity:.5">PRE 的状态机 + append-only 日志，即对此的一种尝试。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 33 · 问题四 · 变与不变 ============ -->
-<section class="slide light" data-layout="S19" data-animate="grid-reveal">
-  <div class="canvas-card">
-    <div class="chrome-min"><div class="l">CHAPTER 04 · THOUGHTS</div><div class="r">30 / 31</div></div>
+    <div class="chrome-min"><div class="l">CHAPTER 04 · THOUGHTS</div><div class="r">25 / 28</div></div>
     <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
       <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
         <h2 class="h-xl-zh">如何区分需深入研究的<br/><span style="color:var(--accent)">稳定问题</span>与可被模型解决的问题？</h2>
@@ -2208,7 +2026,76 @@ REV_ING · EXE_WAIT · DONE</pre>
   </div>
 </section>
 
-<!-- ============ 24 · Closing · 单句结尾 ============ -->
+<!-- ============ 26 · 四代范式 · 一个例子 ============ -->
+<section class="slide light" data-layout="S11" data-animate="grid-reveal">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">CHAPTER 04 · THOUGHTS</div><div class="r">26 / 28</div></div>
+    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:2.6vh">
+      <div data-anim="head" style="display:flex;flex-direction:column;gap:.8vh">
+        <div class="t-meta" style="color:var(--accent)">EXAMPLE · 一个例子</div>
+        <h2 class="h-xl-zh"><span style="color:var(--accent)">去年</span>的技术路线，今年就已经不需要了</h2>
+      </div>
+      <div data-anim="body" style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch;gap:0 .8vw">
+        <div class="sub-card" style="background:var(--grey-1);padding:2vh 1.05vw;display:flex;flex-direction:column;gap:.6vh">
+          <div class="t-meta" style="color:var(--accent)">01</div>
+          <div style="font-family:var(--mono);font-size:max(11px,.72vw);letter-spacing:.14em;color:var(--accent);text-transform:uppercase">PROMPT</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw)">提示词工程</div>
+          <p class="body-sm" style="color:var(--text-secondary);line-height:1.55;margin-top:.3vh">曾精心调教每一句问法；如今模型自能理解，调教收益递减。</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:var(--mono);font-size:1.3vw">→</div>
+        <div class="sub-card" style="background:var(--grey-1);padding:2vh 1.05vw;display:flex;flex-direction:column;gap:.6vh">
+          <div class="t-meta" style="color:var(--accent)">02</div>
+          <div style="font-family:var(--mono);font-size:max(11px,.72vw);letter-spacing:.14em;color:var(--accent);text-transform:uppercase">CONTEXT</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw)">上下文工程</div>
+          <p class="body-sm" style="color:var(--text-secondary);line-height:1.55;margin-top:.3vh">曾费力裁剪背景与记忆；如今长上下文模型自动容纳。</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:var(--mono);font-size:1.3vw">→</div>
+        <div class="sub-card" style="background:var(--grey-1);padding:2vh 1.05vw;display:flex;flex-direction:column;gap:.6vh">
+          <div class="t-meta" style="color:var(--accent)">03</div>
+          <div style="font-family:var(--mono);font-size:max(11px,.72vw);letter-spacing:.14em;color:var(--accent);text-transform:uppercase">HARNESS</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw)">约束工程</div>
+          <p class="body-sm" style="color:var(--text-secondary);line-height:1.55;margin-top:.3vh">曾细抠规则与工具边界；如今模型更自主，硬约束渐松。</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:var(--mono);font-size:1.3vw">→</div>
+        <div class="sub-card" style="background:var(--grey-1);padding:2vh 1.05vw;display:flex;flex-direction:column;gap:.6vh">
+          <div class="t-meta" style="color:var(--accent)">04</div>
+          <div style="font-family:var(--mono);font-size:max(11px,.72vw);letter-spacing:.14em;color:var(--accent);text-transform:uppercase">LOOP</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:500;font-size:max(15px,1.3vw)">循环工程</div>
+          <p class="body-sm" style="color:var(--text-secondary);line-height:1.55;margin-top:.3vh">仍是当前范式，但搭法越走越轻——苦工正被更强的模型抹平。</p>
+        </div>
+      </div>
+      <!-- <div data-anim="foot" class="t-meta" style="opacity:.5">模型越强，越早的范式越没意义：四代都曾费心，收益层层消退。</div> -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ 25 · 礁石与船 · 被取代还是被放大 ============ -->
+<section class="slide dark" data-layout="S08" data-animate="duo-mirror">
+  <div class="canvas-card">
+    <div class="chrome-min"><div class="l">CHAPTER 04 · THOUGHTS</div><div class="r">27 / 28</div></div>
+    <div style="flex:1;padding:0;display:grid;grid-template-rows:auto 1fr auto;gap:3vh">
+      <div data-anim="head" style="display:flex;flex-direction:column;gap:1.2vh">
+        <h2 class="h-xl-zh" style="color:var(--paper)">礁石与<span style="color:var(--accent)">船</span></h2>
+      </div>
+      <div data-anim="body" style="display:grid;grid-template-columns:1fr 1fr;gap:0;align-content:center">
+        <div style="padding:2.4vh 1.8vw;background:rgba(255,255,255,.05);margin-right:1.2vw;display:flex;flex-direction:column;gap:1.2vh">
+          <div class="t-meta" style="color:rgba(250,250,248,.55)">礁石 · REEF</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.5vw);color:var(--paper);letter-spacing:-.01em;line-height:1.2">业务逻辑——<br/>可被 AI 完全替代的能力</div>
+          <p class="body-sm" style="color:rgba(250,250,248,.68)">智能潮水上涨，礁石最终被淹没。</p>
+        </div>
+        <div style="padding-left:2.4vw;display:flex;flex-direction:column;gap:1.2vh">
+          <div class="t-meta" style="color:var(--accent)">船 · BOAT</div>
+          <div style="font-family:var(--sans),var(--sans-zh);font-weight:400;font-size:max(18px,1.5vw);color:var(--paper);letter-spacing:-.01em;line-height:1.2">能利用 AI<br/>放大自身价值的能力</div>
+          <p class="body-sm" style="color:rgba(250,250,248,.68)">水涨船高，成为技术进步的受益者。</p>
+        </div>
+      </div>
+      <div data-anim="foot" class="t-meta" style="color:rgba(250,250,248,.5)">潮水 = 大模型智能水平。时刻想：在做的是礁石，还是船？</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 27 · Closing · 张杰 ============ -->
 <section class="slide accent" data-layout="SWISS-COVER-ASCII" data-animate="hero">
   <div class="canvas-card">
     <canvas class="ascii-bg" aria-hidden="true"></canvas>
@@ -2218,7 +2105,6 @@ REV_ING · EXE_WAIT · DONE</pre>
     </div>
   </div>
 </section>
-
 
 </div>
 
@@ -2487,8 +2373,7 @@ const initialSlideParam = new URLSearchParams(location.search).get('slide');
 const initialSlide = initialSlideParam ? Number(initialSlideParam) - 1 : 0;
 go(Number.isFinite(initialSlide) ? initialSlide : 0);
 </script>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script>lucide.createIcons();</script>
+<!-- Lucide 图标库已移除:本 deck 未使用任何 data-lucide 图标,原 unpkg 同步外链挂起会阻塞渲染致白屏 -->
 
 <!-- Motion One 动效引擎 (与原模板一致) -->
 <script type="module">
